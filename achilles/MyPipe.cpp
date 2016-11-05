@@ -29,6 +29,7 @@ const std::vector<std::string>& MyPipe::GetResultLines()const
 
 void MyPipe::Plenish()
 {
+	// replace the cmd string to any external command u wish
 	static const std::string cmd("cat /etc/passwd");
 	char line[4096*100];
 
