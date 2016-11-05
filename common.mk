@@ -19,7 +19,7 @@ objects      := $(addsuffix .o,$(stems))
 dependencies := $(addsuffix .d,$(stems))
 
 include_dirs := ../include
-CPPFLAGS     += $(addprefix -I,$(include_dirs))
+CPPFLAGS     += $(addprefix -I,$(include_dirs)) -std=c++0x
 
 vpath %.h . $(include_dirs)
 
