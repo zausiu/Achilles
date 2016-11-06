@@ -1,5 +1,5 @@
 /*********************************************
- * ZmqDealer.h
+ * ZmqOffice.h
  * Author: kamuszhou@tencent.com kamuszhou@qq.com
  * website: blog.ykyi.net
  * Created on: Nov 6, 2016
@@ -7,19 +7,24 @@
  ********************************************/
 
 #ifndef ZMQDEALER_H_
-#define ZMQDEALER_H_
+#define ZMQOFFICE_H_
 
-class ZmqDealer
+class ZmqOffice
 {
 public:
-	ZmqDealer();
-	virtual ~ZmqDealer();
+	ZmqOffice();
+	virtual ~ZmqOffice();
 
 	void Run();
+	int Send(const std::string& req);
+
+private:
+	void OnResponse(const std::string& id, const std::list<std::string>& resps);
 
 private:
 	void* sock_dealer_;
-	void* sock_pair_;
+	void* sock_pair0_;
+	void* sock_pair1_;
 	void* ctx_;
 };
 
