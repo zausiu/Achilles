@@ -13,11 +13,6 @@
 
 int main(int argc, char** argv)
 {
-//	MyPipe pipe(6);
-//	const auto& lines = pipe.GetResultLines();
-//
-//    std::copy(lines.begin(), lines.end(),
-//              std::ostream_iterator<std::string>(std::cout));
 	Router router;
 	router.Run();
 

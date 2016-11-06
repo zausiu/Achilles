@@ -18,6 +18,9 @@ public:
 	void Run();
 
 private:
+	bool ParseJsonTxt(const std::string& txt, std::string& cmd, int& start_line, int& line_count);
+
+private:
 	void* ctx_;
 	void* sock_;
 };

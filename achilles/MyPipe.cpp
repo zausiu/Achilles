@@ -40,9 +40,15 @@ void MyPipe::Plenish()
     {
     	throw std::runtime_error("popen() failed!");
     }
-    for (int i =0; i < line_count_ && !feof(pipe.get()); i++)
+    int end_line = start_line_ + line_count_;
+    for (int i = 0; i < end_line && !feof(pipe.get()); i++)
     {
         if (fgets(line, sizeof(line), pipe.get()) != NULL)
+        {
+        	if ( i < start_line_ )
+        		continue;
+
         	lines_.push_back(line);
+        }
     }
 }
