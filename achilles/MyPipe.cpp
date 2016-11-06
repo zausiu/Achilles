@@ -10,8 +10,10 @@
 #include <boost/shared_ptr.hpp>
 #include "MyPipe.h"
 
-MyPipe::MyPipe(int line_count)
+MyPipe::MyPipe(const std::string cmd, int start_line, int line_count)
 {
+	cmd_ = cmd;
+	start_line_ = start_line;
 	line_count_ = line_count;
 	lines_.reserve(line_count);
 
@@ -30,10 +32,10 @@ const std::vector<std::string>& MyPipe::GetResultLines()const
 void MyPipe::Plenish()
 {
 	// replace the cmd string to any external command u wish
-	static const std::string cmd("cat /etc/passwd");
+//	static const std::string cmd("cat /etc/passwd");
 	char line[4096*100];
 
-    boost::shared_ptr<FILE> pipe(popen(cmd.c_str(), "r"), pclose);
+    boost::shared_ptr<FILE> pipe(popen(cmd_.c_str(), "r"), pclose);
     if (!pipe)
     {
     	throw std::runtime_error("popen() failed!");

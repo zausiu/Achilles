@@ -15,7 +15,7 @@
 class MyPipe
 {
 public:
-	MyPipe(int line_count);
+	MyPipe(const std::string cmd, int start_line, int line_count);
 	virtual ~MyPipe();
 	const std::vector<std::string>& GetResultLines()const;
 
@@ -23,6 +23,8 @@ private:
 	void Plenish();
 
 private:
+	std::string cmd_;
+	int start_line_;
 	int line_count_;
 	std::vector<std::string> lines_;
 };

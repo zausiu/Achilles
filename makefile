@@ -1,19 +1,20 @@
-program := achilles
-cli := cli
+################################################
+# created by kamuszhou@tencent.com
+################################################
 
-.PHONY: all $(program) ${cli}
+# list all sub-directories
+dirs := $(shell ls -d */)
+projs := $(filter-out public/ bin/, $(dirs))
 
-all: $(program) $(cli) 
+.PHONY: all $(projs)
 
-$(program):
-	$(MAKE) --directory=$@ $(TARGET)
+all: $(projs)
 
-$(cli):
+$(projs):
 	$(MAKE) --directory=$@ $(TARGET)
 
 clean:
-#for d in $(program) $(utest);
-	for d in $(program);                    \
+	for d in $(projs);          \
 	do                                      \
 		$(MAKE) --directory=$$d clean;  \
 	done
