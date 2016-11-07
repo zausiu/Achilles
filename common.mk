@@ -23,7 +23,7 @@ include_dirs += . $(public_dir) ../gleaner
 CXXFLAGS += --std=c++0x 
 #CPPFLAGS += $(addprefix -I,$(include_dirs)) -I$(boost_home)include -I$(boost_home2)include
 CPPFLAGS += $(addprefix -I,$(include_dirs)) -I$(boost_home)include -DVERSION_MAJOR=1 -DVERSION_MINOR=0
-LINKFLAGS += -static -L$(lib) $(addprefix -L,$(mysql_lib)) -lmysqlcppconn-static -lmysqlclient -lseclog -lsecneocomm -L$(boost_home)lib -lboost_filesystem -lboost_system -lboost_regex -lboost_thread -lboost_program_options -lboost_date_time -lpthread -lrt -ldl -lz -lcrypto -ldl
+LINKFLAGS += -static -L$(lib) $(addprefix -L,$(mysql_lib)) -lmysqlcppconn-static -lmysqlclient -lseclog -lsecneocomm -L$(boost_home)lib -lboost_filesystem -lboost_system -lboost_regex -lboost_thread -lboost_program_options -lboost_date_time -lpthread -lrt -ldl -lz -lcrypto -ldl -lsodium
 #LINKFLAGS += -Wl,-Bstatic -L$(lib) $(addprefix -L,$(mysql_lib)) -lmysqlcppconn-static -lmysqlclient -lseclog -lbon2 -lsecneocomm -L$(boost_home)lib -lboost_filesystem -lboost_system -lboost_regex -lboost_thread -lboost_program_options -lboost_date_time -lpthread -lrt -ldl -lz -lcrypto
 
 vpath %.cpp .

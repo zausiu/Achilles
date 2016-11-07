@@ -52,7 +52,7 @@ void Router::Run()
 		std::cout << "Received an identifier: [" << identity << "]\n";
 
 		int more;
-		size_t more_size;
+		size_t more_size = sizeof(more);
 		for (int i = 0; true; i++)
 		{
 			int rc = zmq_getsockopt(sock_, ZMQ_RCVMORE, &more, &more_size);
